@@ -1,0 +1,94 @@
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.Period;
+import java.util.Locale;
+
+public class DateTimeLab {
+
+	public static void main(String[] args) {
+		formatDate();
+		formatTime();
+		formatDateTime();
+		immutableDateTime();
+		timeOperations();
+		period();
+	}
+
+	//	Exercise 1: Appending LocalDate and DateTimeFormatter
+	static void formatDate() {
+		LocalDate today = LocalDate.of(2025, 8, 21);
+
+		DateTimeFormatter dtf1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("EEEE, MMMM dd, yyyy", Locale.ENGLISH);
+
+		System.out.println("Default format: " + today);
+		System.out.println("Custom format 1: " + today.format(dtf1));
+		System.out.println("Custom format 2: " + today.format(dtf2));
+	}
+
+	//	Exercise 2: LocalTime and DateTimeFormatter
+	static void formatTime() {
+		LocalTime now = LocalTime.of(16, 45, 30);
+
+		DateTimeFormatter dtf1 = DateTimeFormatter.ofPattern("HH:mm:ss");
+		DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("hh:mm:ss a");
+
+		System.out.println("Default format: " + now);
+		System.out.println("24-hour format: " + now.format(dtf1));
+		System.out.println("12-hour format with AM/PM: " + now.format(dtf2));
+	}
+
+	//	Exercise 3: LocalDateTime and DateTimeFormatter
+	static void formatDateTime() {
+		LocalDateTime event = LocalDateTime.of(2025, 11, 27, 19, 0, 0);
+
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MMM dd, yyyy 'at' hh:mm a");
+
+		System.out.println("Default format: " + event);
+		System.out.println("Custom format: " + event.format(dtf));
+	}
+
+	//	Exercise 4: The Immutability of Date-Time Objects
+	static void immutableDateTime() {
+		LocalDate startDate = LocalDate.of(2025, 9, 1);
+
+		startDate.plusDays(10);
+
+		System.out.println("Start date after trying to modify it: " + startDate);
+
+		LocalDate endDate = startDate.plusDays(10);
+
+		System.out.println("The original start date is still: " + startDate);
+		System.out.println("The new end date is: " + endDate);
+	}
+
+	//	Exercise 5: Adding and Subtracting Time (`plus` and `minus`)
+	static void timeOperations() {
+		LocalDateTime baseTime = LocalDateTime.of(2025, 10, 15, 10, 30, 0);
+
+		LocalDateTime futureTime = baseTime.plusYears(1).plusMonths(2).plusHours(5);
+		LocalDateTime pastTime = baseTime.minusWeeks(3).minusDays(3);
+
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+		System.out.println("Base time:   " + baseTime.format(dtf));
+		System.out.println("Future time: " + futureTime.format(dtf));
+		System.out.println("Past time:   " + pastTime.format(dtf));
+	}
+
+	//	Exercise 6: Period - Measuring a Span of Time
+	static void period() {
+		LocalDate date1 = LocalDate.of(2024, 3, 15);
+		LocalDate date2 = LocalDate.of(2026, 7, 20);
+
+		Period period = Period.between(date1, date2);
+
+		System.out.print("The period between the two dates is: ");
+		System.out.print(period.getYears() + " years, ");
+		System.out.print(period.getMonths() + " months, and ");
+		System.out.println(period.getDays() + " days.");
+	}
+
+}
