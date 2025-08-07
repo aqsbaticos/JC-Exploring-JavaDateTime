@@ -61,7 +61,7 @@ Developed by: Baticos, Andric Quinn S.
 
 ![Screenshot Proof](/ss/e4-o.png?raw=true "exercise-4-output")
 
-**Observation**: _I miscounted the index start again so the resulting string was "I like programming in PyJava". Also, even if the given index was out of range, the resulting string resized._
+**Observation**: _As expected, the program outputted a defaulted format 2025-09-01, 2026-09-01, and 2025-09-11._
 
 ---
 ### Exercise 5: Adding and Subtracting Time (`plus` and `minus`)
@@ -76,7 +76,7 @@ Developed by: Baticos, Andric Quinn S.
 
 ![Screenshot Proof](/ss/e5-o.png?raw=true "exercise-5-output")
 
-**Observation**: _As expected, the program appended "...", inserted "Ready, Set, " at index 0, and deleted "Sta" near the end of the string._
+**Observation**: _As expected, the program outputted a 2025-10-15 10:30, 2026-12-15 15:30 and 2025-09-21 10:30._
 
 ---
 ### Exercise 6: Period - Measuring a Span of Time
@@ -91,4 +91,4 @@ Developed by: Baticos, Andric Quinn S.
 
 ![Screenshot Proof](/ss/e6-o.png?raw=true "exercise-6-output")
 
-**Observation**: _As expected, the program outputted fox, 16 & -1._
+**Observation**: _As expected, the program outputted "The period between the two dates is: 2 years, 4 months, and 5 days."._
